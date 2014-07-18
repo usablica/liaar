@@ -3,7 +3,10 @@ Default settings for liaar
 '''
 
 
-# default resources directory
+# apps directory
+APPS_DIRECTORY = './apps/'
+
+# resources directory
 RESOURCES_DIRECTORY = './resources/'
 
 # resource files extension

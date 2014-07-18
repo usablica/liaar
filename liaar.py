@@ -13,14 +13,20 @@ def main():
     # source directory
     resources_dir = settings.RESOURCES_DIRECTORY
 
-    if args.resource:
-        resources_dir = args.resource
+    # applications directory
+    apps_dir = settings.APPS_DIRECTORY
 
-    abs_resources_dir = dir.get_abs_path(resources_dir)
+    # applications file extension
+    app_file_ext = settings.APP_FILE_EXTENSION
 
-    print dir.get_resources_list(abs_resources_dir)
+    # application's setting liaar
+    app_setting_filename = settings.APP_SETTING_FILENAME
 
-    print resources_dir
+    print dir.get_resources_list(args.app_name)
+
+    print dir.get_app_setting_filename(args.app_name)
+
+    print resources_dir, apps_dir, app_file_ext, app_setting_filename
 
 if __name__ == '__main__':
     main()

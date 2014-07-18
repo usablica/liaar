@@ -20,8 +20,7 @@ def intro():
     # config arguments
     parser = argparse.ArgumentParser(description='Liaar creates a fake REST API using JSON files')
 
-    # adding source argument
-    parser.add_argument('-s', action="store", dest="resource",
-                        help="Resources directory destination")
+    parser.add_argument('app_name', action="store",
+                        help="Application name to run")
 
     return parser.parse_args()
