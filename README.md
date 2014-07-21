@@ -23,6 +23,24 @@ resources
 
 And the url would be `http://127.0.0.1:1234/users/profile`.
 
+##Schemas
+
+In order to run the application, you should define application’s setting and resources via JSON format.
+This section shows you the schema of these JSON files.
+
+###Application setting
+
+The `setting.json` can have following properties:
+
+####Mandatory
+- version {int} - Version number of application
+
+####Optional
+- url_format {string} - The format of urls
+
+
+###resources
+
 ##Requirements
 
 - Python v2.7
