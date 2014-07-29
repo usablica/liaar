@@ -33,13 +33,15 @@ This section shows you the schema of these JSON files.
 The `setting.json` can have following properties:
 
 ####Mandatory
-- version {int} - Version number of application
+- version {string} - Version number of application
 
 ####Optional
 - url_format {string} - The format of urls
 
 
-###resources
+###Application resources
+
+
 
 ##Requirements
 

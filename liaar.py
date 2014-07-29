@@ -2,33 +2,27 @@
  Liaar v0.1.0
  By Afshin Mehrabani (@afshinmeh) - 2014
 '''
-from lib import settings, bootstrap, path, parser
+from lib import setting, bootstrap, path, parser, app, url, exception, route, twisted_handler
 
 
-# main
 def main():
     # bootstrap
     args = bootstrap.intro()
 
-    # source directory
-    resources_dir = settings.RESOURCES_DIRECTORY
+ #   print app.get_app_setting(args.app_name)
+ #   print url.resource_url(app.get_app_setting(args.app_name))
 
-    # applications directory
-    apps_dir = settings.APPS_DIRECTORY
+    route.add('/', 'root')
+    route.add(setting.APP_URL_FORMAT, 'app')
+    route.add(setting.APP_URL_FORMAT +
+              setting.APP_RESOURCE_URL_FORMAT, 'resource')
+    route.add(setting.APP_URL_FORMAT +
+              setting.APP_RESOURCE_URL_FORMAT +
+              setting.APP_METHOD_URL_FORMAT, 'method')
 
-    # applications file extension
-    app_file_ext = settings.APP_FILE_EXTENSION
 
-    # application's setting liaar
-    app_setting_filename = settings.APP_SETTING_FILENAME
+    twisted_handler.start()
 
-  #  print path.get_resources_list(args.app_name)
-
- #   print path.get_app_setting_filename(args.app_name)
-
-    print parser.load_and_parse(path.get_app_setting_filename(args.app_name))
-
-   # print resources_dir, apps_dir, app_file_ext, app_setting_filename
 
 if __name__ == '__main__':
     main()

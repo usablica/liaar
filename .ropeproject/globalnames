@@ -1,3 +1,5 @@
 €}q(Ulib.dir]q(Uget_app_setting_filenameqUget_resources_abs_pathqUget_app_fileqUget_app_abs_pathqUget_resources_listqeUlib.bootstrap]q(Uintroq	Ugreetingq
-eU
-lib.parser]qUload_and_parseqaUlib.path]q(hhhhheUliaar]qUmainqaUlib.settings]q(UAPP_SETTING_FILENAMEqUAPP_FILE_EXTENSIONqURESOURCES_DIRECTORYqUAPPS_DIRECTORYqeUlib.exception]qUhandleqaUlib.app]qUis_appqau.
+eU	lib.route]q(Uget_allqUgetqUinitqUextract_paramsqUaddqeU
+lib.parser]qUload_and_parseqaUlib.twisted_handler]q(USiteResourceqUstartqeUlib.path]q(hhhhheUliaar]qUmainqaUlib.settings]q(UAPP_URL_FORMATqURESOURCES_DIRECTORYqUAPPS_DIRECTORYqUAPP_FILE_EXTENSIONqUAPP_SETTING_FILENAMEqUAPP_METHOD_URL_FORMATqUAPP_RESOURCE_URL_FORMATq U
+LIAAR_PORTq!eUlib.exception]q"Uhandleq#aUlib.url]q$(Uapp_urlq%Uresource_urlq&U
+method_urlq'eUlib.app]q((Uget_app_settingq)Uget_app_resourcesq*eu.
