@@ -1,0 +1,6 @@
+{
+  "firstName": "person.first_name",
+  "lastName": "person.last_name",
+  "username": "internet.username",
+  "email": "internet.email"
+}
