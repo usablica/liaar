@@ -45,7 +45,12 @@ def extract_params(route, route_regex, path):
     extracted_params = {}
     i = 0
     for param in params:
-        extracted_params[param] = values[0][i]
+        param_value = values[0][i]
+        # trim `v` character from `version` parameter
+        if param == 'version':
+            param_value = values[0][i].lstrip('v')
+
+        extracted_params[param] = param_value
         i = i + 1
 
     return extracted_params

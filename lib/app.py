@@ -57,6 +57,13 @@ def add_method(app_name, version, resource_name, method_name, method_setting):
     logger.info('Adding method `%s` to resource `%s`' % (method_name, resource_name))
 
 
+def get_method(app_name, version, resource_name, method_name):
+    '''
+    Get method's setting
+    '''
+    return apps[app_name][version]['resources'][resource_name][method_name]
+
+
 def get_apps():
     '''
     To get all available applications

@@ -9,12 +9,18 @@ def main():
     # bootstrap
     args = bootstrap.intro()
 
-    bootstrap.init_apps()
-
  #   print app.get_app_setting(args.app_name)
  #   print url.resource_url(app.get_app_setting(args.app_name))
 
+    route.add('/', 'root')
+    route.add(setting.APP_URL_FORMAT, 'app')
+    route.add(setting.APP_URL_FORMAT +
+              setting.APP_RESOURCE_URL_FORMAT, 'resource')
+    route.add(setting.APP_URL_FORMAT +
+              setting.APP_RESOURCE_URL_FORMAT +
+              setting.APP_METHOD_URL_FORMAT, 'method')
 
+    bootstrap.init_apps()
 
     twisted_handler.start()
 

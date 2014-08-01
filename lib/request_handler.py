@@ -1,12 +1,16 @@
 '''
 Twisted request handlers
 '''
-from lib import parser, path
+from lib import app, exception
 
 
 def method(request, route_params):
-    method_filename = path.get_method_filename(route_params['app_name'],
-                                               route_params['resource_name'],
-                                               route_params['method_name'])
-    method_json = parser.load_and_parse(method_filename)
+    try:
+        method_json = app.get_method(route_params['app_name'],
+                                     route_params['version'],
+                                     route_params['resource_name'],
+                                     route_params['method_name'])
+    except KeyError:
+        exception.handle('No method found')
+
     return '%s' % method_json
