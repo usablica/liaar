@@ -1,16 +1,20 @@
 '''
 Twisted request handlers
 '''
-from lib import app, exception
+from lib import app, parser
+import json
 
 
 def method(request, route_params):
-    try:
-        method_json = app.get_method(route_params['app_name'],
-                                     route_params['version'],
-                                     route_params['resource_name'],
-                                     route_params['method_name'])
-    except KeyError:
-        exception.handle('No method found')
+    # set response content-type to json
+    request.responseHeaders.addRawHeader(b"content-type", b"application/json")
+    method_setting = app.get_method(route_params['app_name'],
+                                    route_params['version'],
+                                    route_params['resource_name'],
+                                    route_params['method_name'])
 
-    return '%s' % method_json
+    output = {}
+    for param in method_setting:
+        output[param] = parser.parse_param(method_setting[param])
+
+    return json.dumps(output)

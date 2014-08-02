@@ -1,6 +1,10 @@
 {
-  "firstName": "person.first_name",
-  "lastName": "person.last_name",
-  "username": "internet.username",
-  "email": "internet.email"
+  "firstName": "first_name",
+  "lastName": "last_name",
+  "username": "user_name",
+  "email": {
+    "type": "list",
+    "count": 3,
+    "formatter": "email"
+  }
 }

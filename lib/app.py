@@ -3,7 +3,8 @@ To retrieve and parse application setting and resources file
 '''
 
 from lib import path, parser, exception, logger, setting
-import re, os
+import re
+import os
 
 
 # to hold all applications' configuration in memory
@@ -61,7 +62,10 @@ def get_method(app_name, version, resource_name, method_name):
     '''
     Get method's setting
     '''
-    return apps[app_name][version]['resources'][resource_name][method_name]
+    try:
+        return apps[app_name][version]['resources'][resource_name][method_name]
+    except KeyError:
+        exception.handle('No method found')
 
 
 def get_apps():
