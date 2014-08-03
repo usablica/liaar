@@ -1,6 +1,6 @@
 # Liaar
 
-A simple tool to create a fake REST API
+Create fake REST API in a minute
 
 
 ##How to use?
@@ -224,6 +224,11 @@ Liaar uses [Faker](http://www.joke2k.net/faker/) library to generate fake data f
      words                       # ['optio', 'et', 'voluptatem']
 
 
+
+##Roadmap
+- Allow cross-domain XHR request
+- Better error handling
+- Add URL format to `setting.json`
 
 ##Requirements
 
