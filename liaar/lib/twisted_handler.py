@@ -4,7 +4,7 @@ Handle twisted resources and routing
 from twisted.web.server import Site
 from twisted.web.resource import Resource
 from twisted.internet import reactor
-from lib import route, exception, logger, setting, request_handler
+from liaar.lib import route, exception, logger, setting, request_handler
 import json
 
 

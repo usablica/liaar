@@ -1,7 +1,7 @@
 '''
 Twisted request handlers
 '''
-from lib import app, parser
+from liaar.lib import app, parser
 import json
 
 

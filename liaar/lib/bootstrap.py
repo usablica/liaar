@@ -1,5 +1,5 @@
 import argparse
-from lib import app, path, parser
+from liaar.lib import app, path, parser
 
 
 # to print the tool manual and other messages

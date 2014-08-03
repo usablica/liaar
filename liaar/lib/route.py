@@ -2,7 +2,7 @@
 To manage twisted routes
 '''
 import re
-from lib import setting
+from liaar.lib import setting
 
 
 # keep routes list

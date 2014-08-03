@@ -1,0 +1,2 @@
+Twisted==14.0.0
+fake-factory==0.4.0

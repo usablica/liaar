@@ -2,7 +2,7 @@
 To produce URLs for resources, apps, etc.
 '''
 
-from lib import setting
+from liaar.lib import setting
 
 
 def app_url(app_setting):

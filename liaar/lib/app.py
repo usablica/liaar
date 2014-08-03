@@ -2,7 +2,7 @@
 To retrieve and parse application setting and resources file
 '''
 
-from lib import path, parser, exception, logger, setting
+from liaar.lib import path, parser, exception, logger, setting
 import re
 import os
 

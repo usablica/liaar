@@ -3,7 +3,7 @@ To parse and get the path of all parts
 '''
 
 import os
-from lib import exception, setting
+from liaar.lib import exception, setting
 
 
 def get_resources_abs_path(app_name):

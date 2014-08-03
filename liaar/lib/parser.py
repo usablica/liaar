@@ -4,7 +4,7 @@ To parse json files inside applications (setting.json, resource etc.)
 
 import json
 from faker import Factory
-from lib import exception
+from liaar.lib import exception
 
 
 def load_and_parse(filename):
