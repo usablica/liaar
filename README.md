@@ -10,13 +10,18 @@ Create fake REST API in a minute
 Issue following command:
 
      pip install liaar
+     
+or with `easy_install`:
 
-Above command installs all dependecies automatically. Then use following command to run the liaar:
+     easy_install liaar
+
+Above commands install all dependecies automatically. Then use following command to run the liaar:
 
     liaar
 
+Then you should see the liaar picture.
 
-##How to use?
+##How to use
 
 You should create directories as resources’ namespace and place JSON files inside them as API methods.
 
