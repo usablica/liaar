@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Liaar by usablica</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Liaar</h1>
+          <h2>An easy to use tool for creating fake REST API using JSON files</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/usablica/liaar/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/usablica/liaar/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/usablica/liaar" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a name="liaar" class="anchor" href="#liaar"><span class="octicon octicon-link"></span></a>Liaar</h1>
+
+<p>A simple tool to create a fake REST API</p>
+
+<h2>
+<a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How to use?</h2>
+
+<p>You should create directories as resources’ namespace and place JSON files inside them as API methods.</p>
+
+<p>Suppose you have following directory structure:</p>
+
+<pre><code>apps
+     |_ .
+     |_ ..
+     |_ blog
+             |_ .
+             |_ ..
+             |_ setting.json
+             |_ resources
+                          |_ .
+                          |_ ..
+                          |_ users
+                                   |_ .
+                                   |_ ..
+                                   |_ profile.json
+</code></pre>
+
+<p>And the url would be <code>http://127.0.0.1:1234/blog/v1/users/profile</code>. In next parts you can read more about resource and application setting JSON file's format.</p>
+
+<h2>
+<a name="schema" class="anchor" href="#schema"><span class="octicon octicon-link"></span></a>Schema</h2>
+
+<p>In order to run the application, you should define application’s setting and resources using JSON files.
+This section shows you the schema of these JSON files.</p>
+
+<h3>
+<a name="settingjson-application-setting" class="anchor" href="#settingjson-application-setting"><span class="octicon octicon-link"></span></a>setting.json: Application setting</h3>
+
+<p>Using this file you can define global properties for the application. The <code>setting.json</code> can have following properties:</p>
+
+<h4>
+<a name="mandatory" class="anchor" href="#mandatory"><span class="octicon octicon-link"></span></a>Mandatory</h4>
+
+<ul>
+<li>version {string} - Version number of application</li>
+</ul><p>Following JSON file shows an example of <code>setting.json</code>:</p>
+
+<pre><code> {
+   "version": "1"
+ }
+</code></pre>
+
+<h3>
+<a name="application-resources" class="anchor" href="#application-resources"><span class="octicon octicon-link"></span></a>Application resources</h3>
+
+<p>Using this file you define application's resources. This JSON file can have as many as fields you need and each value can be either <code>string</code> or <code>object</code>. Following JSON file is an example of a resource:</p>
+
+<pre><code>      {
+        "firstName": "first_name",
+        "lastName": "last_name",
+        "username": "user_name"
+      }
+</code></pre>
+
+<p>The output of above resource file is:  </p>
+
+<pre><code> {
+   "firstName": "Polk",
+   "lastName": "Nienow",
+   "username": "kbogan"
+ }
+</code></pre>
+
+<p>If you need a list of values instead of a single value, you can use nested object like following:</p>
+
+<pre><code> {
+   "firstName": "first_name",
+   "lastName": "last_name",
+   "username": "user_name",
+   "email": {
+     "type": "list",
+     "count": 3,
+     "formatter": "email"
+   }
+ }
+</code></pre>
+
+<p>And then the output of above JSON file would be:</p>
+
+<pre><code> {
+   "username": "kbogan",
+   "lastName": "Nienow",
+   "email": ["darcie.pfannerstill@mohr.com", "barton.elvira@haneoconnell.com", "imills@hotmail.com"],
+   "firstName": "Polk"
+ }
+</code></pre>
+
+<p>Liaar uses <a href="http://www.joke2k.net/faker/">Faker</a> library to generate fake data for API methods. You can use all Faker's formatters to produce fake data. Following list shows current available formatters to use in Liaar:</p>
+
+<p><strong>file</strong>:</p>
+
+<pre><code> mime_type                   # video/webm
+</code></pre>
+
+<p><strong>user_agent</strong>:</p>
+
+<pre><code> chrome                      # Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_8_4) AppleWebKit/5341 (KHTML, like Gecko) Chrome/13.0.803.0 Safari/5341
+ firefox                     # Mozilla/5.0 (Windows 95; sl-SI; rv:1.9.1.20) Gecko/2012-01-06 22:35:05 Firefox/3.8
+ internet_explorer           # Mozilla/5.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.1)
+ linux_platform_token        # X11; Linux x86_64
+ linux_processor             # x86_64
+ mac_platform_token          # Macintosh; U; PPC Mac OS X 10_7_6
+ mac_processor               # U; PPC
+ opera                       # Opera/9.41 (Windows CE; it-IT) Presto/2.9.168 Version/12.00
+ safari                      # Mozilla/5.0 (Windows; U; Windows NT 5.1) AppleWebKit/534.34.4 (KHTML, like Gecko) Version/5.0 Safari/534.34.4
+ user_agent                  # Mozilla/5.0 (iPod; U; CPU iPhone OS 3_2 like Mac OS X; en-US) AppleWebKit/531.15.3 (KHTML, like Gecko) Version/4.0.5 Mobile/8B119 Safari/6531.15.3
+ windows_platform_token      # Windows 98; Win 9x 4.90
+</code></pre>
+
+<p><strong>phone_number</strong>:</p>
+
+<pre><code> phone_number                # (593)652-1880
+</code></pre>
+
+<p><strong>miscelleneous</strong>:</p>
+
+<pre><code> random_number               # 3438
+ random_digit                # 3
+ boolean                     # True
+ country_code                # BB
+ language_code               # fr
+ locale                      # pt_GN
+ md5                         # ab9d3552b5c6e68714c04c35725ba73c
+ null_boolean                # True
+ sha1                        # 3fc2ede28f2596050f9a94c15c59b800175409d0
+ sha256                      # f06561a971d6b1306ecef60be336556d6de2540c2d0d2158f4d0ea3f212cd740
+</code></pre>
+
+<p><strong>internet</strong>:</p>
+
+<pre><code> company_email               # ggreenfelder@ortizmedhurst.com
+ domain_name                 # mayer.com
+ domain_word                 # gusikowski
+ email                       # gbrakus@johns.net
+ free_email                  # abbey60@yahoo.com
+ free_email_domain           # hotmail.com
+ ipv4                        # 81.132.249.71
+ ipv6                        # 4c55:8c8b:54b5:746d:44ed:c7ab:486a:a50e
+ safe_email                  # amalia49@example.com
+ slug                        # TypeError
+ tld                         # net
+ uri                         # http://www.parker.com/
+ uri_extension               # .asp
+ uri_page                    # terms
+ uri_path                    # explore/list/app
+ url                         # http://dubuque.info/
+ user_name                   # goodwin.edwin
+</code></pre>
+
+<p><strong>company</strong>:</p>
+
+<pre><code> bs                          # maximize end-to-end infrastructures
+ catch_phrase                # Multi-tiered analyzing instructionset
+ company                     # Stanton-Luettgen
+ company_suffix              # Group
+</code></pre>
+
+<p><strong>date_time</strong>:</p>
+
+<pre><code> am_pm                       # AM
+ century                     # IX
+ date                        # 1985-02-17
+ date_time                   # 1995-06-08 14:46:50
+ date_time_ad                # 1927-12-17 23:08:46
+ date_time_between           # 1999-08-22 22:49:52
+ date_time_this_century      # 1999-07-24 23:35:49
+ date_time_this_decade       # 2008-01-27 01:08:37
+ date_time_this_month        # 2012-11-12 14:13:04
+ date_time_this_year         # 2012-05-19 00:40:00
+ day_of_month                # 23
+ day_of_week                 # Friday
+ iso8601                     # 2009-04-09T21:30:02
+ month                       # 03
+ month_name                  # April
+ time                        # 06:16:50
+ timezone                    # America/Noronha
+ unix_time                   # 275630166
+ year                        # 2002
+</code></pre>
+
+<p><strong>person</strong>:</p>
+
+<pre><code> first_name                  # Elton
+ last_name                   # Schowalter
+ name                        # Susan Pagac III
+ prefix                      # Ms.
+ suffix                      # V
+</code></pre>
+
+<p><strong>address</strong>:</p>
+
+<pre><code> address                     # 044 Watsica Brooks West Cedrickfort, SC 35023-5157
+ building_number             # 319
+ city                        # Kovacekfort
+ city_prefix                 # New
+ city_suffix                 # ville
+ country                     # Monaco
+ geo_coordinate              # 148.031951
+ latitude                    # 154.248666
+ longitude                   # 109.920335
+ postcode                    # 82402-3206
+ secondary_address           # Apt. 230
+ state                       # Nevada
+ state_abbr                  # NC
+ street_address              # 793 Haskell Stravenue
+ street_name                 # Arvilla Valley
+ street_suffix               # Crescent
+</code></pre>
+
+<p><strong>lorem</strong></p>
+
+<pre><code> paragraph                   # Itaque quia harum est autem inventore quisquam eaque. Facere mollitia repudiandae
+                                      qui et voluptas. Consequatur sunt ullam blanditiis aliquam veniam illum voluptatem.
+ paragraphs                  # ['Alias porro soluta eum voluptate. Iste consequatur qui non nam.',
+                                         'Id eum sint eius earum veniam fugiat ipsum et. Et et occaecati at labore
+                                         amet et. Rem velit inventore consequatur facilis. Eum consequatur consequatur
+                                         quis nobis.', 'Harum autem autem totam ex rerum adipisci magnam adipisci.
+                                         Qui modi eos eum vel quisquam. Tempora quas eos dolorum sint voluptatem
+                                         tenetur cum. Recusandae ducimus deleniti magnam ullam adipisci ipsa.']
+ sentence                    # Eum magni soluta unde minus nobis.
+ sentences                   # ['Ipsam eius aut veritatis iusto.',
+                                         'Occaecati libero a aut debitis sunt quas deserunt aut.',
+                                         'Culpa dolor voluptatum laborum at et enim.']
+ text                        # Dicta quo eius possimus quae eveniet cum nihil. Saepe sint non nostrum.
+                                      Sequi est sit voluptate et eos eum et. Pariatur non sunt distinctio magnam.
+ word                        # voluptas
+ words                       # ['optio', 'et', 'voluptatem']
+</code></pre>
+
+<h2>
+<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<ul>
+<li>Python v2.7</li>
+<li>Twisted v14.0</li>
+<li>Faker v0.4.0</li>
+</ul><h2>
+<a name="thanks" class="anchor" href="#thanks"><span class="octicon octicon-link"></span></a>Thanks</h2>
+
+<ul>
+<li><a href="https://github.com/efazati">Mohammad Efazati</a></li>
+<li><a href="https://github.com/amir">Amir Mohammad Said</a></li>
+<li>
+<a href="http://investingcaffeine.com/">http://investingcaffeine.com/</a> for Pinocchio picture</li>
+</ul><h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>MIT</p>
+        </section>
+
+        <footer>
+          Liaar is maintained by <a href="https://github.com/usablica">usablica</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
