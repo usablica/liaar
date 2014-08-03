@@ -232,9 +232,10 @@ Liaar uses [Faker](http://www.joke2k.net/faker/) library to generate fake data f
 - Faker v0.4.0
 
 ##Thanks
-Mohammad Efazati
-(Amir Mohammad Said)[https://github.com/amir]
-http://investingcaffeine.com/ for Pinocchio picture
+
+ - [Mohammad Efazati](https://github.com/efazati)
+ - [Amir Mohammad Said](https://github.com/amir)
+ - http://investingcaffeine.com/ for Pinocchio picture
 
 ##License
 MIT
