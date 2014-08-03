@@ -5,6 +5,17 @@ Create fake REST API in a minute
 <p align="center"><img src='http://usablica.github.io/liaar/images/pinocchio.jpg' /></p>
 
 
+##Install
+
+Issue following command:
+
+     pip install liaar
+
+Above command installs all dependecies automatically. Then use following command to run the liaar:
+
+    liaar
+
+
 ##How to use?
 
 You should create directories as resources’ namespace and place JSON files inside them as API methods.
