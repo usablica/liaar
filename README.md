@@ -53,13 +53,40 @@ Using this file you define application's resources. This JSON file can have as m
           {
             "firstName": "first_name",
             "lastName": "last_name",
-            "username": "user_name",
-            "email": {
-              "type": "list",
-              "count": 3,
-              "formatter": "email"
-            }
+            "username": "user_name"
           }
+
+The output of above resource file is:  
+
+     {
+       "firstName": "Polk",
+       "lastName": "Nienow",
+       "username": "kbogan"
+     }
+
+
+If you need a list of values instead of a single value, you can use nested object like following:
+
+     {
+       "firstName": "first_name",
+       "lastName": "last_name",
+       "username": "user_name",
+       "email": {
+         "type": "list",
+         "count": 3,
+         "formatter": "email"
+       }
+     }
+
+And then the output of above JSON file would be:
+
+     {
+       "username": "kbogan",
+       "lastName": "Nienow",
+       "email": ["darcie.pfannerstill@mohr.com", "barton.elvira@haneoconnell.com", "imills@hotmail.com"],
+       "firstName": "Polk"
+     }
+
 
 Liaar uses [Faker](http://www.joke2k.net/faker/) library to generate fake data for API methods. You can use all Faker's formatters to produce fake data. Following list shows current available formatters to use in Liaar:
 
@@ -89,6 +116,8 @@ Liaar uses [Faker](http://www.joke2k.net/faker/) library to generate fake data f
 
 **miscelleneous**:
 
+     random_number               # 3438
+     random_digit                # 3
      boolean                     # True
      country_code                # BB
      language_code               # fr
