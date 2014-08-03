@@ -2,6 +2,8 @@
 
 Create fake REST API in a minute
 
+<p align="center"><img src='http://usablica.github.io/liaar/images/pinocchio.jpg' /></p>
+
 
 ##How to use?
 
