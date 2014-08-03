@@ -232,17 +232,28 @@ Liaar uses [Faker](http://www.joke2k.net/faker/) library to generate fake data f
 - Better error handling
 - Add URL format to `setting.json`
 
+
 ##Requirements
 
 - Python v2.7
 - Twisted v14.0
 - Faker v0.4.0
 
+
 ##Thanks
 
  - [Mohammad Efazati](https://github.com/efazati)
  - [Amir Mohammad Said](https://github.com/amir)
  - http://investingcaffeine.com/ for Pinocchio picture
+
+
+## Author
+**Afshin Mehrabani**
+
+- [Twitter](https://twitter.com/afshinmeh)
+- [Github](https://github.com/afshinm)
+- [Personal page](http://afshinm.name/)
+
 
 ##License
 MIT
