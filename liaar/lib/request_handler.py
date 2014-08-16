@@ -13,8 +13,4 @@ def method(request, route_params):
                                     route_params['resource_name'],
                                     route_params['method_name'])
 
-    output = {}
-    for param in method_setting:
-        output[param] = parser.parse_param(method_setting[param])
-
-    return json.dumps(output)
+    return json.dumps(parser.parse_param(method_setting))

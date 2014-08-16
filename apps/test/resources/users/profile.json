@@ -3,8 +3,12 @@
   "lastName": "last_name",
   "username": "user_name",
   "email": {
-    "type": "list",
-    "count": 3,
-    "formatter": "email"
+    "liaar_type": "list",
+    "liaar_count": 3,
+    "liaar_formatter": "email"
+  },
+  "meta": {
+    "visit": "random_number",
+    "registerDate": "date"
   }
 }

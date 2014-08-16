@@ -30,14 +30,22 @@ def parse_param(value):
     # if the value is a string (single value)
     if isinstance(value, basestring):
         formatter_name = value
-    # or if it's a list
+    # or if it's a dictionary
     elif isinstance(value, dict):
-        if 'formatter' in value:
-            formatter_name = value['formatter']
-        if 'type' in value:
+        if 'liaar_formatter' in value:
+            formatter_name = value['liaar_formatter']
+        if 'liaar_type' in value:
             is_list = True
-        if 'count' in value:
-            list_count = value['count']
+        if 'liaar_count' in value:
+            list_count = value['liaar_count']
+
+        nested_result = {}
+        # now we should iterate over keys and call `parse_param` again
+        if formatter_name is None:
+            for value_item in value:
+                nested_result[value_item] = parse_param(value[value_item])
+
+            return nested_result
     else:
         exception.handle('Unknown resource property: %s' % value)
 
