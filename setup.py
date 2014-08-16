@@ -9,7 +9,6 @@ setup(
     license='LICENSE',
     url='https://github.com/usablica/liaar',
     description='Create fake REST API in a minute',
-    long_description=open('README.md').read(),
     author='Afshin Mehrabani',
     author_email='afshin.meh@gmail.com',
     install_requires=['Twisted', 'fake-factory'],

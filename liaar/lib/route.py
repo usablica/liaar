@@ -64,7 +64,7 @@ def get(arr_path):
     path = '/' + '/'.join(arr_path)
 
     for route in _routes:
-        route_regex = re.sub('{[a-zA-Z0-9_]+}', '([a-zA-Z0-9]+)', route[0])
+        route_regex = re.sub('{[a-zA-Z0-9_]+}', '([a-zA-Z0-9_]+)', route[0])
         if re.match('^' + route_regex + '$', path):
             return route, extract_params(route, route_regex, path)
             break
