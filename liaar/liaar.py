@@ -1,5 +1,5 @@
 '''
- Liaar v0.1.0
+ Liaar v0.2.0
  By Afshin Mehrabani (@afshinmeh) - 2014
 '''
 from lib import setting, bootstrap, route, twisted_handler

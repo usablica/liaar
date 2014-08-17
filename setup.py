@@ -4,7 +4,7 @@ import setuptools
 
 setup(
     name='Liaar',
-    version='0.1.0',
+    version='0.2.0',
     packages=['liaar', 'liaar.lib'],
     license='LICENSE',
     url='https://github.com/usablica/liaar',
