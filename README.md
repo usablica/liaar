@@ -90,9 +90,9 @@ If you need a list of values instead of a single value, you can use nested objec
        "lastName": "last_name",
        "username": "user_name",
        "email": {
-         "type": "list",
-         "count": 3,
-         "formatter": "email"
+         "liaar_type": "list",
+         "liaar_count": 3,
+         "liaar_formatter": "email"
        }
      }
 
